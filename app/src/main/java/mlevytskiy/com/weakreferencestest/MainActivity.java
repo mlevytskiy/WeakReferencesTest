@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         List<WeakReference<Activity>> list = new ArrayList<>();
         list.add(new WeakReference<Activity>(this));
         list.remove(new WeakReference<Activity>(this));
-        Toast.makeText(this, "list size = " + list.size(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "default weak reference behavior list size = " + list.size(), Toast.LENGTH_LONG).show();
+        list.clear();
+
+        list.add(new CustomWeakReference<Activity>(this));
+        list.remove(new CustomWeakReference<Activity>(this));
+        Toast.makeText(this, "custom weak reference behavior list size = " + list.size(), Toast.LENGTH_LONG).show();
     }
 }
